@@ -44,12 +44,10 @@ export default tseslint.config(
 	},
 	{
 		rules: {
-			'@typescript-eslint/consistent-type-imports': [
-				'error',
-				{ disallowTypeAnnotations: false },
-			],
+			'@typescript-eslint/consistent-type-imports': 'error',
 			'unicorn/no-array-for-each': 'off',
 			'unicorn/no-null': 'off',
+			'unicorn/prevent-abbreviations': 'off',
 		},
 	},
 	prettierRecommended,

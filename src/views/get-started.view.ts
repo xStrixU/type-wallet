@@ -1,5 +1,7 @@
 import { select } from '@inquirer/prompts';
 
+import { createWalletView } from './create-wallet/create-wallet.view';
+
 import { clearView } from '@/common/utils/console';
 
 export const getStartedView = async () => {
@@ -16,7 +18,7 @@ export const getStartedView = async () => {
 
 	switch (choice) {
 		case 'create': {
-			console.log('Create new wallet');
+			createWalletView();
 			break;
 		}
 		case 'recover': {
