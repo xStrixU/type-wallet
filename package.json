@@ -8,8 +8,8 @@
 	"author": "Kacper Polak <kacper.polak10@gmail.com>",
 	"scripts": {
 		"prepare": "husky",
-		"dev": "tsx watch src/index.ts",
-		"build": "tsc",
+		"dev": "tsx --watch src/index.ts",
+		"build": "tsup-node",
 		"lint": "eslint",
 		"test": "vitest"
 	},
@@ -28,6 +28,7 @@
 		"husky": "9.1.0",
 		"lint-staged": "15.2.7",
 		"prettier": "3.3.3",
+		"tsup": "8.1.2",
 		"tsx": "^4.16.2",
 		"typescript": "5.5.3",
 		"typescript-eslint": "7.16.1",
