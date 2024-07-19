@@ -1,9 +1,9 @@
-import { createMnemonicView } from './create-mnemonic/create-mnemonic';
-import { createPasswordView } from './create-password/create-password.view';
-import { verifyMnemonicView } from './verify-mnemonic/verify-mnemonic.view';
+import { createPasswordView } from '../create-password/create-password.view';
+import { createMnemonicView } from './create-mnemonic';
+import { verifyMnemonicView } from './verify-mnemonic.view';
 
 export const createWalletView = async () => {
-	await createPasswordView();
+	await createPasswordView(true);
 	const mnemonic = await createMnemonicView();
 
 	await verifyMnemonicView(mnemonic);

@@ -1,6 +1,7 @@
 import { select } from '@inquirer/prompts';
 
 import { createWalletView } from './create-wallet/create-wallet.view';
+import { recoverWalletView } from './recover-wallet.view';
 
 import { clearView } from '@/common/utils/console';
 
@@ -22,7 +23,7 @@ export const getStartedView = async () => {
 			break;
 		}
 		case 'recover': {
-			console.log('Recover a wallet');
+			recoverWalletView();
 			break;
 		}
 	}

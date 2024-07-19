@@ -1,6 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { generateMnemonic, mnemonicToSeed } from './bip39';
+import {
+	generateMnemonic,
+	isWordValid,
+	mnemonicToSeed,
+	validateMnemonic,
+} from './bip39';
 
 import * as crypto from '@/common/utils/crypto';
 
@@ -71,5 +76,50 @@ describe('bip39', () => {
 				expect(calculatedSeed.toString('hex')).toBe(seed);
 			},
 		);
+	});
+
+	describe('validateMnemonic', () => {
+		it.each([
+			{
+				mnemonic:
+					'romance elder reform melt catch drill horror error obscure during review master',
+				result: true,
+			},
+			{
+				mnemonic:
+					'opera cactus rough quiz client muffin busy together update goat battle skirt',
+				result: true,
+			},
+			{
+				mnemonic:
+					'shoulder garage supply half minute ladder since school want gentle sport tiny',
+				result: false,
+			},
+			{
+				mnemonic: 'vendor tiger saddle dilemma bitter',
+				result: false,
+			},
+			{
+				mnemonic:
+					'weapon shine catch blur inch humor risk okay derive confirm cup space again expose before',
+				result: true,
+			},
+		])(
+			`validateMnemonic($mnemonic) returns $result`,
+			({ mnemonic, result }) => {
+				expect(validateMnemonic(mnemonic)).toBe(result);
+			},
+		);
+	});
+
+	describe('isWordValid', () => {
+		it.each([
+			{ word: 'sword', result: true },
+			{ word: 'weak', result: false },
+			{ word: 'hello', result: true },
+			{ word: 'hi', result: false },
+		])(`isWordValid($word) returns $result`, ({ word, result }) => {
+			expect(isWordValid(word)).toBe(result);
+		});
 	});
 });

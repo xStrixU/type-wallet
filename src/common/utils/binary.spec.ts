@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { bufferToBinary } from './binary';
+import { bufferToBits } from './binary';
 
 describe('binary', () => {
-	describe('bufferToBinary', () => {
+	describe('bufferToBits', () => {
 		it.each([
 			{
 				buffer: Buffer.from([0x4e, 0x2f, 0x1a]),
@@ -17,8 +17,8 @@ describe('binary', () => {
 				buffer: Buffer.from([0x7b, 0x4c, 0x8d, 0x2a, 0x4e, 0x6f, 0x5b]),
 				binary: '01111011010011001000110100101010010011100110111101011011',
 			},
-		])(`bufferToBinary($buffer) returns $binary`, ({ buffer, binary }) => {
-			expect(bufferToBinary(buffer)).toBe(binary);
+		])(`bufferToBits($buffer) returns $binary`, ({ buffer, binary }) => {
+			expect(bufferToBits(buffer)).toBe(binary);
 		});
 	});
 });

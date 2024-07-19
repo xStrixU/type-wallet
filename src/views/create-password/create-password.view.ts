@@ -4,11 +4,12 @@ import { validatePassword } from './validate-password';
 
 import { clearView } from '@/common/utils/console';
 
-export const createPasswordView = async () => {
+export const createPasswordView = async (isStarting?: boolean) => {
 	clearView();
 
 	console.log(
-		"Let's start by creating a password that will be used to unlock the wallet:",
+		isStarting ? "Let's start by creating" : 'Great, now create',
+		'a password that will be used to unlock the wallet:',
 	);
 
 	const passwordValue = await password({
